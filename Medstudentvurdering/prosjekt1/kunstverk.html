@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styling.css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap">
+  <title>Forside</title>
+</head>
+
+<body id="body" onload="init();">
+
+  <div class="header" id="myHeader">
+  <div class="box" id="mybox"><h2>Mine kunstverk</h2></div>
+  </div>
+
+
+  <div class="grid-container">
+    <div class="art" id="myArt10"><h2>The Rocket Nose Man SVG</h2></div>
+    <div class="art">
+      <svg type="image/svg+xml" id="noseSVG" width=300 height=300 viewBox="0 0 500 500">
+      <!--nose-->
+        <path class="nosePath" d="m 225 200
+        c -34 6 -18 112 30 20
+        c 20 80 73 14 30 -20
+        c -30 -73 -30 -105 -60 0"
+        fill="url(#nose)" stroke="black" stroke-width="1" filter="url(#shadow)"/>
+
+        <!--Nose filter. Lager en kopi av nesen og gjør kopien blured. Forskyver den litt nedover i forhold til orginal nesen.-->
+        <defs>
+          <radialGradient id="nose" cx="50%" cy="50%" r="50%" fx="70%" fy="50%">
+            <stop offset="45%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:pink;stop-opacity:1"/>
+          </radialGradient>
+          <filter id="shadow" width="150%" height="150%">
+            <feOffset result="offOut" in="SourceAlpha" dx="-1" dy="2"/>
+            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+          </filter>
+        </defs>
+      </svg>
+
+      <svg type="image/svg+xml" class="art1" id="myArt11" width=300 height=300 viewBox="0 0 500 500">
+        <!--head-->
+        <ellipse cx="260" cy="200" rx="230" ry="200"
+          fill="url(#head)" stroke="black" stroke-width="1"/>
+        <!--eyes(First)-->
+        <ellipse cx="150" cy="130" rx="40" ry="20"
+          fill="url(#eyes)" stroke="black" stroke-width="1" filter="url(#shadow)"/>
+        <circle cx="150" cy="130" r="10" fill="blue" stroke-width="1"/>
+        <circle cx="150" cy="130" r="5" fill="black" stroke="black" stroke-width="1"/>
+        <!--eyes(second)-->
+        <ellipse cx="350" cy="130" rx="40" ry="20"
+          fill="url(#eyes)" stroke="black" stroke-width="1" filter="url(#shadow)"/>
+        <circle cx="350" cy="130" r="10" fill="blue" stroke-width="1"/>
+        <circle cx="350" cy="130" r="5" fill="black" stroke="black" stroke-width="1"/>
+        <!--mouth-->
+        <path d="m 188 288
+          c -7 -3 74 -16 126 4
+          q 21 8 0 26
+          c 5 7 -87 28 -116 -10
+          q -12 -5 -11 -20"
+          fill="url(#mouth)" stroke="black" stroke-width="1" />
+        <path d="m 197 307
+          q 28 -6 16 10
+          q 28 -11 13 6
+          q 27 -15 18 4
+          q 15 -20 15 1
+          q 10 -23 15 -1
+          q 9 -22 14 -2
+          q -6 -23 14 -3
+          q -2 -22 12 -5
+          c 5 7 -87 28 -116 -10"
+          fill="white" stroke="black" stroke-width="1"/>
+        <path d="m 210 290 c 20 12 129 110 85 2"
+          fill="url(#tongue)" stroke="black" stroke-width="1" filter="url(#shadow)"/>
+
+        <path d="m 315 292
+          q -20 12 -14 -5
+          q -10 22 -15 -3
+          q -7 25 -14 -1
+          q -14 28 -18 0
+          q -11 28 -16 -1
+          q -3 25 -13 0
+          q -2 27 -19 2
+          q -4 19 -17 4
+          c -7 -3 74 -16 126 4"
+          fill="white" stroke="black" stroke-width="1"/>
+      <!--fillers-->
+        <defs>
+          <radialGradient id="head" cx="50%" cy="50%" r="50%" fx="70%" fy="50%">
+            <stop offset="45%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:pink;stop-opacity:1" />
+          </radialGradient>
+          <radialGradient id="eyes" cx="50%" cy="50%" r="50%" fx="70%" fy="50%">
+            <stop offset="45%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:pink;stop-opacity:1" />
+          </radialGradient>
+          <radialGradient id="mouth" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" style="stop-color:red;stop-opacity:0" />
+            <stop offset="100%" style="stop-color:black;stop-opacity:1" />
+          </radialGradient>
+          <linearGradient id="tongue" x1="0%" y1="0%" x2="0%" y2="35%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
+            <stop offset="75%" style="stop-color:pink;stop-opacity:1" />
+          </linearGradient>
+          <filter id="shadow" width="150%" height="150%">
+            <feOffset result="offOut" in="SourceAlpha" dx="-1" dy="2"/>
+            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+          </filter>
+        </defs>
+      </svg>
+    </div>
+
+    <p class="art" id="myArt12">
+      Roy Paus Albertsen er en av Norges fremste digitale fotokunstere.
+      Teknisk kvalitet har alltid vært Albertsens varemerke. Han er influert
+      av amerikanske tegneserier som South Park, Family guy og Rick and Morty.
+      Albertesen leggere vekt på særskilte fotografiske kvaliteter som rik detaljgivelse,
+      vekselvirkning mellom helheten og deltajene og en nyansert rødtoneskala.
+      Det er gråtoneskalaen man ofte forbinder med Albertsen.
+      Mens andre fotografer spenner sine bilder fra det lyseste hvite til det mørkeste røde,
+      jobber Alveng i det øverste sjiktet av rødtoner.
+    </p>
+
+    <div class="art" id="myArt20"><h2>The Rocket Nose Man Canvas</h2></div>
+    <canvas class="art" id="myArt21" width="300" height="300"></canvas>
+    <p class="art" id="myArt22">
+      Roy Paus Albertsen er en av Norges fremste digitale fotokunstere.
+      Teknisk kvalitet har alltid vært Albertsens varemerke. Han er influert
+      av amerikanske tegneserier som South Park, Family guy og Rick and Morty.
+      Albertesen leggere vekt på særskilte fotografiske kvaliteter som rik detaljgivelse,
+      vekselvirkning mellom helheten og deltajene og en nyansert rødtoneskala.
+      Det er gråtoneskalaen man ofte forbinder med Albertsen.
+      Mens andre fotografer spenner sine bilder fra det lyseste hvite til det mørkeste røde,
+      jobber Alveng i det øverste sjiktet av rødtoner.
+    </p>
+
+</div>
+  <div class="documentation">
+    <button id="btnDocumentation">Les dokumentasjon</button>
+    <div id="documentationText" hidden="true">
+      <p>I dette prosjektet har jeg valgt å lage et Ansikt i SVG som jeg deretter har kopiert i canvas ved bruk drawImage funksjonen.
+      Ansiktet demonstrer interaktivitet ved at nesen flyr av gårde dersom du klikker på den.
+      Jeg har også her prøvd å kopiere SVG animasjonen i canvas.<br />
+      <br /></p>
+      <h3>kunstverk.html</h3>
+      <p><br />I "head" har jeg linket dokumentet til styling.css dokumentet og tatt meg friheten til å legge til et googleAPI med en font jeg liker godt.
+      Videre i body har jeg lagt inn en div med id "grid-container". Denne blir satt opp på to ulike måter i styling.css dokumentet.
+      Ved bruk av media Query har jeg definert to ulike oppsett av gridbox basert på hvor stort skjermvindu man har.
+      Gridbox ble valgt fordi det er godt egnet for å plassere innhold på skjermen når man ønsker flere kolonner. Gridbox gjør det også enkelt å
+      endre oppsettet til forskjellige skjermstørrelser.
+      <br /><br />
+      For å enkelt kunne plassere dokumentasjonen og midtstille knappen har jeg brukt flexbox til dette.
+      <br /><br />
+      SVG grafikken er delt opp i to SVG-elementer. Grunnen til dette kommer jeg tilbake til.
+      ViewBox er definert for å kunne bevare aspektratioen når jeg justerte høyden og bredden på grafikken.
+      Grafikken består av sirkler, ellipser og benzier kurver.
+      Det er lagt til radialGradient, linearGradient for å lage flytende overganger av fargene og filter for skyggeeffekt.
+      For enkelhets skyld har jeg definert alle attributtene til SVG-grafikken rett i html-dokumentet.
+      Filtrene og skyggeeffektene er kopiert fra w3school og jeg har justert dem etter ønske og gjort meg kjent med hva parameterne gjør.
+      <br /><br /></p>
+      <h3>Script.js</h3>
+      <p><br />
+      Etterfulgt av SVG elementet i kunstverk.html kommer canvas. Canvas-bilde er satt opp ved å sette verdiene i JavaScript.
+      Jeg har valgt å bruke og drawImage() funksjonen for å tegne inn canvas-bilde.
+      DrawImage() supporterer SVGImageElement, så her hentet jeg SVG objektet, serialiserte
+      denne og brukte denne som kilde sammen med informasjon om hvordan Canvas-apiet skulle tolke denne dataen.
+      <br /><br /></p>
+      <h5>Animasjoner</h5>
+      <p><br />
+      Jeg brukte kort og godt keyframes i CSS for å sette opp et sett med endringer av neseobjektet.
+      De innebygde animasjon funksjonene til CSS fungerte godt for å manipulere grafikken slik jeg ønsket.
+      Jeg brukte jQuery for å aktivere animasjonen ved et klikk på nesen.
+      jQuery gjorde det i dette tilfellet mulig å spille av hele animasjonen uten at den stoppet opp når musen ikke lenger aktiverte område.
+      <br />
+      Her brukte jeg jQuery sin handlingslytter for å hente
+      xy-posisjonen til musen hver gang man klikker. Med dette kunne jeg sjekke om musen var innefor område der nesen befinner seg.
+      Dersom dette kravet blir oppfylt kjøres "draw()" funksjonen som ved hjelp av tiden fra start beregner nye bilder som ligner på SVG animasjonen(ikke helt korrekt matte).
+      "Draw()" funksjon henter ut SVG-elementet som kun inneholder nesen for å kunne kjøre en transformeringsmetode på kun denne.
+      Fikk ikke satt av tid til å fikse hakkingen av animasjonen.
+      <br />
+      jQuery har visst seg å være svært nyttig til å forenkle JavaScript-koden betraktlig.
+      Dette blir godt demonstrert av jQuery koden som er brukt for å vise/skjule dokumentasjonen.
+      Det må nevnes at lambda-setninger gjør mye av JavaScripten en del enklere.
+      <br /><br /></p>
+      <h3>SVG vs Canvas</h3>
+      <p><br />
+      Dette prosjektet har gitt meg god innsikt i forskjellen på SVG- og Canvas-grafikk.
+      SVG er basert på vektorgrafikk og kan skaleres opp uenderlig. Når jeg koder kan jeg enkelt manipulere grafikkelementet
+      ved bruk av css og JS slik jeg ønsker. Jeg kan enkelt bruke JS for å kjøre en funksjon når et element interageres med.
+      <br />
+      Canvas gjorde det meste tungvidt. Grafikken er pikselbasert og innefor vinduet måtte jeg bergene manuelt hvor musen klikket i forhold til resten av bilde.
+      Animasjonene fungerer som en video der hver endring må kalkuleres bilde for bilde og deretter tegnes opp.
+      På den andre siden så kan jeg se at canvas kan være kjekk å bruke når jeg ønsker å lage bilder med veldig mange elementer der SVG blir tyngre å kjøre.
+      <br />
+      <br />
+      </p>
+      <h3>Testing</h3>
+      <p>
+      <br />
+      Siden er testet i både webkit- og gecko-motor. Nettleseren som ble brukt var Chrome, Edge og Firefox.
+      Dette viste seg å ha god nytte for seg da Firefox tolket nettsiden annerledes enn Edge og Chrome.
+      <br />
+      <br />
+      Kilder:
+      <br />
+      <br />
+      https://stackoverflow.com/questions/7694323/css3-animation-on-hover-force-entire-animation
+      https://www.w3schools.com/jquery/jquery_hide_show.asp
+      https://www.w3schools.com/css/default.asp
+      https://www.w3schools.com/html/default.asp
+      https://www.w3schools.com/css/css3_gradients.asp
+      https://www.w3schools.com/css/css3_shadows.asp
+
+      </p>
+    </div>
+  </div>
+  <script src="jquery.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

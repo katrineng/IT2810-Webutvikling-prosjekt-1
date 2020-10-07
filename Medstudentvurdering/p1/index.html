@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="no" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <title>Euclid - Father of geometry</title>
+  </head>
+  <body>
+
+    <header id="topbg">
+      <div class="heading">
+        <h1>Euclid</h1>
+        <p>Father of geometry</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="about">
+        <h2>About the artist</h2>
+        <div class="info">
+          <div class="image">
+            <img class="euclid" src="euclid.jpg" alt="euclid">
+          </div>
+          <div class="text">
+            <p>
+              Euclid is the father of geometry. I am his son, an artist and a cs student. Inspired by my father to use geometric shapes to create mind blowing art.
+              Click on my art below and see what happens.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="animation">
+
+        <div class="canvas">
+          <h2>Mi Casa</h2>
+          <canvas id="drawing" class="clickable" width="500" height="400"></canvas>
+          <p>Canvas</p>
+          <!-- JS for canvas in a seperate file -->
+          <script type="text/javascript" src="canvas.js"></script>
+        </div>
+
+        <div class="svg">
+          <h2>El edificio</h2>
+          <svg class="clickable" width="500" height="400">
+            <rect x="0" y="0" width="500" height="400" fill="#257a33" />
+            <rect id="sky" x="0" y="0" width="500" height="200" fill="#03032b" />
+
+            <rect x="250" y="60" width="150" height="350" style="fill:#838685;stroke:black;stroke-width:2" />
+
+            <rect x="275" y="100" width="40" height="40" fill="black" style="stroke:black;stroke-width:2" />
+            <rect class="window" x="275" y="160" width="40" height="40" fill="black" style="stroke:black;stroke-width:2" />
+            <rect x="275" y="220" width="40" height="40" fill="black" style="stroke:black;stroke-width:2" />
+            <rect class="window" x="275" y="280" width="40" height="40" fill="black" style="stroke:black;stroke-width:2" />
+            <rect class="window" x="340" y="100" width="40" height="40" fill="black" style="stroke:black;stroke-width:2" />
+            <rect x="340" y="160" width="40" height="40" fill="black" style="stroke:black;stroke-width:2" />
+            <rect x="340" y="220" width="40" height="40" fill="black" style="stroke:black;stroke-width:2" />
+            <rect class="window" x="340" y="280" width="40" height="40" fill="black" style="stroke:black;stroke-width:2" />
+
+            <circle id="sun" fill="white" cx="50" cy="50" r="30"/>
+
+            <polygon id="bird" class="bird" points="10,130 15,120 20,120 50,85 50,115 75,115" fill="white" stroke="black"/>
+            <polygon id="bird" class="bird" points="70,140 75,130 80,130 110,95 110,125 135,125" fill="white" stroke="black"/>
+            <polygon id="bird" class="bird" points="0,170 5,160 10,160 40,125 40,155 65,155" fill="white" stroke="black"/>
+
+            <rect x="295" y="340" width="60" height="80" fill="#4b4b4b" />
+          </svg>
+          <p>SVG</p>
+          <!-- jQuery for SVG graphics -->
+          <script type="text/javascript">
+            $(document).ready(function() {
+              // When hovering with mouse over the SVG it will cause the color of the objects to change. Bird animation will also start.
+              $("svg").mouseenter(function() {
+                $("#sun").attr("fill", "yellow")
+                $("#sky").attr("fill", "#2da2c5")
+                $(".window").each(function() {
+                  $(this).attr("fill", "#ede68a")
+                })
+
+                if ($(".bird").hasClass("bird-left")) {
+                  $(".bird").removeClass("bird-left")
+                  $(".bird").addClass("bird-right")
+                } else {
+                  $(".bird").addClass("bird-right")
+                }
+              })
+
+              $("svg").mouseleave(function() {
+                $("#sun").attr("fill", "white")
+                $("#sky").attr("fill", "#03032b")
+                $(".window").each(function() {
+                  $(this).attr("fill", "black")
+                })
+
+                if ($(".bird").hasClass("bird-right")) {
+                  $(".bird").removeClass("bird-right")
+                  $(".bird").addClass("bird-left")
+                } else {
+                  $(".bird").addClass("bird-left")
+                }
+              })
+            })
+          </script>
+        </div>
+      </div>
+
+      <div class="documentation">
+        <h1 class="clickable toggle" style="font-size:30pt">+ Documentation</h1>
+          <div class="doc-text">
+            <h2>CSS Flexbox</h2>
+              <p>
+                After a bit of research, I ended up choosing CSS flexbox to layout the content.
+                I have used flexbox to center align and structure the canvas and SVG in a row. It was also used to structure
+                the image and the text in the about section. The flex-wrap propertie lets the objects jump to next row if the screen dimension is small enough.
+                This allow for a neat and clean design without needing to use css float and position.
+                An advantage of using flexbox over the grid system is the simplicity as it is only one-dimentational.
+                I already had an idea of how the elements were going to be structured. For a simple project like this, using the grid system would be too much.
+              </p>
+
+            <h2>HTML canvas and SVG</h2>
+              <p>
+                I have used the HTML canvas to draw a house and some objects in the background.
+                The canvas API draws graphics using JavaScript and the HTML "canvas" element. I have created a seperate function for each object. The functions
+                consists of tags needed to draw these objects. All objects are drawed when the page is loaded. When a user clicks on the canvas it
+                will invocate a redraw function to first reset and clear the drawing before updating it.
+              </p>
+              <p>
+                SVG has been used to draw a building instead of a house. It also includes a small animation of birds flying. I have used jQuery to control the interaction of the objects.
+                Each element can be controlled by refering to its id or class. Finally I attached a "attr()" function to the element to change its attribute value.
+                This is done so the color of a shape can be changed. For the bird animation, I have used CSS @keyframes rules combined with jQuery to animate the flying birds.
+              </p>
+              <p>
+                It is easier to draw graphics with SVG compared to using canvas. Using canvas you have to write many code lines to draw an object. While SVG is easier for a simple object it might
+                be harder for more complex projects. It is much simpler to target a specific element by refering to its class or id.
+              </p>
+
+            <h2>jQuery</h2>
+              <p>
+                I have decided to use jQuery in the SVG graphics and to show and hide the documentation. The jQuery in the SVG was relatively
+                easy as I only used two mouse events; "mouseenter" and "mouseleave" to change the drawing from one state to another. jQuery makes long JavaScript statement
+                short and simple. Read the SVG section for information.
+              </p>
+              <p>
+                For displaying and hiding the documentation, I used a jQuery method called toggle(). This will change the visibility of the selected elements when triggered.
+                I also included the text() method to change "+ Documentation" to "- Documentation" when it is toggled.
+              </p>
+
+              <h2>Cross-browser testing</h2>
+                <p>
+                  The website has been tested on Safari and Chrome to see if interaction worked with the canvas and SVG.
+                  The responsive design has also been checked by resizing windows. Everything seems to work fine and equally across the different
+                  browsers.
+                </p>
+
+              <h2>Useful sources</h2>
+                <ul>
+                    <li>Canvas: <a href="https://www.w3schools.com/tags/canvas_arc.asp">https://www.w3schools.com/tags/canvas_arc.asp</a></li>
+                    <li>SVG: <a href="https://www.w3schools.com/html/html5_svg.asp">https://www.w3schools.com/html/html5_svg.asp</a></li>
+                    <li>jQuery: <a href="https://www.w3schools.com/jquery/">https://www.w3schools.com/jquery/</a></li>
+                    <li>Difference between flexbox and grid: <a href="https://css-tricks.com/quick-whats-the-difference-between-flexbox-and-grid/">https://css-tricks.com/quick-whats-the-difference-between-flexbox-and-grid/</a></li>
+                    <li>Flexbox guide: <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a></li>
+                </ul>
+
+          </div>
+      </div>
+      <!--
+        jQuery for the documentation
+        jQuery used to toggle documentation
+      -->
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $(".toggle").click(function() {
+            $(".doc-text").toggle()
+
+            let headerTxt = $(".toggle").text()
+            $(".toggle").text(
+                headerTxt == "+ Documentation" ? "- Documentation" : "+ Documentation");
+          })
+        })
+      </script>
+    </main>
+
+    <footer>Project 1 in IT2810</footer>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>IT2810 Webutvikling prosjekt 1</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<meta charset="UTF-8">
+
+</head>
+
+<body>
+
+    <div class="flexbox">
+        
+        <header id="header">
+        
+            <h1>GRÅVÆRSDAGENS SOL</h1>
+        
+        </header>
+
+        <div id="container">
+
+            <div class="vertical-menu">
+                <a href="#header" class="active">Home</a>
+                <a href="#" class="menub" onclick="showArtist()" id="hide">Om kunstneren</a>
+                <a href="#" class="menub" onclick="showSources()"  style="border-radius: 0px 0px 15px 15px;">Kilder</a>
+
+                <div id="aboutme" hidden>
+                    <h3 class="headline">Kunsteren</h3>
+                    <p>Kunstneren av denne animasjonen går i 4. klasse på Ingeniørvitenskap og IKT. </p>
+                    <p>Solsikken på bildet er et symbol på at det fortsatt er sol til tross for grått vær og regn. Blomster vil blomstre uavhengig av vær.
+                        Holder man musen over animasjonen, vil det begynne å regne og himmelen bli grå. Trykker man på animasjonen vil solsikken vokse. Holder man over skyene på SVGbildet, vil skyene utvide seg.</p>
+                </div>
+
+                <div id="sources" hidden>
+                    
+                    <h3 class="headline">Kilder</h3>
+                    <ul>
+                        <li>www.w3schools.com - HTML, CSS, JS, Canvas og SVG</li>
+                        <li>https://youtu.be/yq2au9EfeRQ</li>
+                        <li>https://jquery.com</li>
+                        <li>https://css-tricks.com</li>
+                        <li>https://gomakethings.com/how-to-use-requestanimationframe-with-vanilla-js/</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="imagecontainer">
+                <canvas id="my_canvas" height="500" width="500"></canvas>
+                <h2 style="text-align: center;">CANVAS</h2>
+
+            </div>
+            
+            <div class="imagecontainer">
+                <svg id="my_svg" height="500" width="500">
+                    
+                    <!--Stilk og blader-->
+                    <line x1="250" y1="380" x2="250" y2="200" style="stroke: green;stroke-width:3" />
+
+                    <polygon points="250,270 210,285 250,300" style="fill: green"></polygon>
+                    <polygon points="250,322 250,350 285,334" style="fill: green"></polygon>
+
+                    <line x1="250" y1="285" x2="230" y2="285" style="stroke: lightgreen; stroke-width:0.3"></line>
+                    <line x1="250" y1="334" x2="267" y2="334" style="stroke: lightgreen; stroke-width:0.3"></line>
+
+                    <!--Blomst-->
+
+                    <g id="flower" r="15">
+                    <circle cx="240" cy="178" fill="yellow" class="blomst" />
+                    <circle cx="224" cy="201" fill="yellow" class="blomst"/>
+                    <circle cx="239" cy="222" fill="yellow"class="blomst"/>
+                    <circle cx="265" cy="222" fill="yellow" class="blomst"/>
+                    <circle cx="277" cy="202" fill="yellow"class="blomst"/>
+                    <circle cx="267" cy="180" fill="yellow"class="blomst"/>
+
+                    <circle cx="250" cy="200" r="20"fill="#4B322C" class="blomst"/>
+
+                    </g>
+
+                    <!--Dråper-->
+                    <g class="rain">
+                        <circle cx="220" cy="140" r="6" fill="blue"></circle>
+                        <polygon points="215,137 225,137 220,124" style="fill: blue"></polygon>
+            
+                        <circle cx="268" cy="148" r="6" fill="blue"></circle>
+                        <polygon points="263,145 274,147 268,132" style="fill: blue"></polygon>
+
+                        <circle cx="310" cy="135" r="6" fill="blue"></circle>
+                        <polygon points="310,115 316,133 304,135" style="fill: blue"></polygon>
+                    </g>
+
+                    <!--Stein-->
+                    <circle cx="250" cy="700" r="260" fill="#303030"></circle>
+
+                    <!--Potte-->
+                    <polygon points="200,450 300,450 320,380 180,380" style="fill:#9A5A4C;stroke:black;stroke-width:2" />
+                    <rect width="120" height="15" x="190" y="450" style="fill:#9A5A4C;stroke-width:2;stroke:black" />
+                    
+
+                    <!--Sky-->
+                    <g class="cloud">
+                    <circle  cx="200" cy="80" r="20" fill="white" onmouseover="mouseover(event)" onmouseout="mouseout(event)"/>
+                    <circle  cx="225" cy="80" r="20" fill="white" onmouseover="mouseover(event)" onmouseout="mouseout(event)"/>
+                    <circle  cx="250" cy="80" r="20" fill="white" onmouseover="mouseover(event)" onmouseout="mouseout(event)"/>
+                    <circle  cx="275" cy="80" r="20" fill="white" onmouseover="mouseover(event)" onmouseout="mouseout(event)"/>
+                    <circle  cx="300" cy="80" r="20" fill="white" onmouseover="mouseover(event)" onmouseout="mouseout(event)"/>
+
+                    <circle cx="225" cy="52" r="18" fill="white" onmouseover="mouseover(event)" onmouseout="mouseout(event)"/>
+                    <circle cx="250" cy="52" r="18" fill="white" onmouseover="mouseover(event)" onmouseout="mouseout(event)"/>
+                    <circle cx="275" cy="52" r="18" fill="white" onmouseover="mouseover(event)" onmouseout="mouseout(event)"/>
+                    
+                    </g>
+
+                    
+
+                </svg>
+
+                <h2 style="text-align: center;">SVG</h2>
+
+
+              
+                
+            </div>  
+
+            <div class="buttonbox">
+            
+                <a class="dokButton" onclick="showDok()" href="#myDocumentation">Dokumentasjon</a>
+            
+            </div>
+
+            
+        </div>
+
+        
+
+
+        <div id="myDocumentation">
+
+            <h1 style="text-align: center; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 30pt;">Dokumentasjon</h1>
+
+            
+            <div class="textbox">
+                <h3 class="headline">Valg av Flexbox</h3>
+                <p>
+                Jeg har valgt Flexbox først og fremst på grunn av min kjennskap til Flexbox fra før og at jeg er mer komfortabel med det. 
+                Jeg har vært borti det før, og tenkte det var greit å få frisket det opp litt. Flexbox er godt egnet til sider med få sideelementer, 
+                noe jeg ønsket med min side. Grunnen til at jeg valgte flexbox fremfor grid er fordi flexbox er 1-dimensjonalt, mens grid er 2-dimensjonalt. 
+                Ved å ha 1-dimensjonalitet blir siden delt opp i bokser i en gitt retning og størrelse. 2-dimensjonalitet gjør at bokser kan overlappe, 
+                noe jeg ikke ønsket. Jeg ønsket mye luft og rette linjer, som gjør at nettsiden blir behagelig å se på, og alt ser mer gjennomført ut.
+                </p>
+                <p>
+                Jeg ønsket et rent og ryddig design der animasjonene skulle ligge ved siden av hverandre, med en meny på venstre side. Hvert element på siden har
+                hver sin div, også er alt pakket sammen i en ny div. I tillegg er det en div rundt hele siden, med header og alt, slik at jeg lettere kunne style alt i 
+                forhold til hverandre. Jeg har måttet style de forskjellige boksene både horisontalt og vertikalt for at de skulle ligge sånn jeg ønsket. Deretter har 
+                jeg satt på en flex-wrap slik at siden tilpasser seg nettleservinduets størrelse og elementene legger seg under hverandre dersom vinduet minskes. 
+                </p>
+            </div>
+            
+
+            <br>
+
+            <div class="textbox">
+                <h3 class="headline">HTML Canvas og SVG</h3>   
+                <p>
+                Både Canvas og SVG var noe jeg aldri har vært borti før, så jeg så på utrolig mange videoer og så på eksempler på w3schools. 
+                Jeg startet med Canvasbildet og begynte med enkle figurer for å se hvordan det fungerte. Til slutt skjønte jeg logikken og begynte å utforme en potte, 
+                samt stilk og blomst. For å ikke sitte for lenge med tilpassning av koordinater, posisjon og størrelse, brukte jeg GeoGebra som hjelpemiddel for å finne de riktige 
+                koordinatene for de ulike elementene. Jeg tegnet opp figurene jeg ønsket i cirka den posisjonen den skulle være og brukte koordinatene og la de til i scriptet. 
+                Dette gjorde at jeg sparte veldig mye tid og kun trengte å bruke tid på finpuss av posisjon. 
+                </p>
+
+                <p>
+                Når jeg da skulle begynne med SVG-bildet gikk alt mye fortere da jeg allerede hadde alle de finpussede koordinatene fra canvasbildet. Hele SVG-animasjonen er 
+                hardkodet i HTML og koblet til en JavaScript fil som gjør animasjonen interaktiv. 
+                </p>
+
+                <p>
+                Det var komplisert kode som måtte til for å få animasjon i Canvasbildet. I canvas opprettes det ikke elementer på samme måte som i SVG, men at alt tegnes og 
+                fjernes for hver gang. Dette gjorde det derfor mye vanskeligere å få interaksjon på enkelte elementer. Det jeg fikk til i canvasbildet var å forstørre blomsten, samt å få dråpene til å 
+                falle nedover, ved at animasjonen blir tegnet på nytt hele tiden, og for hver gang animasjonen blir tegnet endres y-posisjonen til dråpen. 
+
+                </p>
+
+                <p>
+                I SVG-bildet var det mulig å lage en egen funksjon over en gruppe elementer og endre på størrelsen på disse når musen hovret over (ref. Hover over skyene i SVG). 
+                Å få til den samme effekten i canvas hadde krevde mye mer, og jeg prøvde mye forskjellig men måtte gi det opp til slutt for å heller prioritere andre effekter. 
+                Det samme gjaldt når jeg ville få regndråpene til å falle når jeg hovret over (slik som det vises på SVG), og slutte når man tok musen ut. Dette gikk kun på SVG, 
+                siden man gruppere flere elementer i gruppe og koble det til en egen funksjon i Javascript. 
+                </p>
+
+                <p>
+                Derfor har animasjonene noe forskjellig interaktivitet, men fortsatt ganske så likt. Jeg tolket oppgaven som at vi skulle kunne forstå forskjellen mellom canvas 
+                og SVG, som jeg jeg har forstått. Noen animasjoner er lettere å få til i SVG og noen lettere å få til i canvas. Canvas krever mer kode for å gjøre enkelte interaksjoner
+                på enkelte elementer enn det SVG gjør.
+                </p>
+
+
+            </div>
+            
+            <br>
+
+
+                <div class="textbox">
+                    <h3 class="headline">JQuery</h3>
+                    <p>
+                    I koden min har jeg brukt jQuery til noe av interaksjonen på siden. Både canvas og SVG-bildet vil endre bakgrunn dersom man holder musen over animasjonen. Dette 
+                    gjorde jeg ved hjelp av å hente ut ID-en til bildene, endre på CSS-en og bytte bakgrunnsfarge. I tillegg har jeg brukt jQuery for å endre størrelsen på blomsten på SVGen
+                    ved klikking på animasjonen. På canvas bildet kunne man endre størrelsen på blomsten direkte i scriptet. 
+                    
+                    </p>
+                    <p>
+                    JQuery og toggleClass funksjonen ble brukt for klikking slik at blomsten endret størrelse. Dette ble gjort på den måten at når man klikker, vil funksjonen bytte mellom
+                    liten og stor blomst i CSSen. Det var viktig at den lille blomsten stod først i CSS koden siden rekkefølge har noe å si i CSS. Hadde koden for stor blomst vært først, ville det ikke vært mulig å toggle mellom liten og stor blomst.
+                    </p>
+                </div>
+                
+    
+                <br>
+    
+                <div class="textbox">
+                    <h3 class="headline">Cross-browser testing</h3>
+                    <p>
+                    Jeg har hovedsakelig brukt Google Chrome underveis under jobbingen, og parallelt sjekket med Safari om alle funksjonalitetene gikk som de skulle. Underveis sjekket 
+                    jeg de ulike funksjonalitetene jeg hadde for å se om det samsvarte med det jeg ønsket og eventuelle feil og mangler. 
+                     </p>
+    
+                </div>
+
+            </div>
+            
+            
+            
+
+    
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script src="jqueryscript.js"></script>
+
+</body>
+</html>
